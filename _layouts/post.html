@@ -1,0 +1,127 @@
+
+{% include header.html %}
+
+<style>
+.article-top{
+	position: relative; 
+	max-height: calc(100vh - 200px); 
+	overflow: hidden;
+}
+.article-top img{
+	width: 100%;
+}
+.article-top h2{
+	position: absolute;
+	bottom: 0; padding: 10px;
+	background-color: rgba(0,0,0,0.7);
+	color: #eee;
+	width: 100%;
+	padding-left: 20px;
+	line-height: 1.2;
+}
+.article-top small{
+	position: absolute;
+	bottom: 0; right: 0; 
+	color: #888;
+}
+</style>
+
+<article class="{{ contentsize }}">
+	<div class="article-top">
+		{% if page.image %}
+			<img src="{{ site.url }}{{ site.baseurl }}/images/{{ page.image }}">
+		{% else %}
+			<img src="{{ site.placeholder }}">
+		{% endif %}
+		<h2>{{ page.title }}</h2>
+		<small>{{ page.date | date: "%Y. %m. %d." }}</small>
+	</div>
+	<div id="content" class="c-12 c-l10 o-l1 pt-2 pl-5 pr-5">
+		{% if site.google-adsense-enabled %}
+		<div id="inpostad" class="lightgray">
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<ins class="adsbygoogle"
+				style="display:block; text-align:center;"
+				data-ad-layout="in-article"
+				data-ad-format="fluid"
+				data-ad-client="{{ site.data-ad-client }}"
+				data-ad-slot="{{ site.data-ad-slot-inpost }}"></ins>
+			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		{% endif %}
+
+		{{content}}
+
+		{% if site.facebook-like-enabled or site.facebook-comments-enabled %}
+		<!-- FB SDK -->
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v8.0&appId={{ site.facebook-sdk-appid }}&autoLogAppEvents=1" nonce="{{ site.facebook-sdk-appid }}"></script>
+		{% endif %}
+
+		{% if site.facebook-like-enabled %}
+		<!-- FB Like button -->
+		<div class="fb-like mb-2" data-href="{{ page.url | absolute_url }}" data-width="" data-layout="button_count" data-action="recommend" data-size="large" data-share="true"></div>
+		{% endif %}
+
+		{% if site.facebook-comments-enabled %}
+		<!-- FB Comments -->
+		<div class="fb-comments" data-href="{{ page.url | absolute_url }}" data-numposts="10" data-lazy="true" data-width="100%"></div>
+		{% endif %}
+		
+		{% if site.google-adsense-enabled %}
+		<div id="inpostad2" class="lightgray">
+			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<ins class="adsbygoogle"
+				style="display:block; text-align:center;"
+				data-ad-layout="in-article"
+				data-ad-format="fluid"
+				data-ad-client="{{ site.data-ad-client }}"
+				data-ad-slot="{{ site.data-ad-slot-inpost }}"></ins>
+			<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+		</div>
+		<script>
+			/* move inpostad and inpostad2 into the content */
+			document.addEventListener("DOMContentLoaded", function(){
+				const adelement = document.querySelector('#inpostad');
+				const adelement2 = document.querySelector('#inpostad2');
+				const pelements = document.querySelectorAll('#content p');
+				if(pelements.length >4)
+					adelement.parentNode.insertBefore(adelement, pelements[5]);
+				if(pelements.length >9)
+				adelement2.parentNode.insertBefore(adelement2, pelements[10]);
+			});
+		</script>
+		{% endif %}
+
+	</div>
+
+</article>
+
+<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/highlight.css" />
+
+{% if site.sidebar %}
+<aside class="{{ sidebarsize }} p-1">
+
+	{% if site.google-adsense-enabled %}
+	<section class="c-12 lightgray mb-1">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+			style="display:block"
+			data-ad-client="{{ site.data-ad-client }}"
+			data-ad-slot="{{ site.data-ad-slot-sidebar }}"
+			data-ad-format="auto"
+			data-full-width-responsive="true"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	</section>
+	{% endif %}
+
+	{% include sidebar.html %}
+
+</aside>
+{% endif %}
+
+<aside class="c-12 mb-2 mt-2">
+	{% include bottombar.html %}
+</aside>
+
+{% include footer.html %}

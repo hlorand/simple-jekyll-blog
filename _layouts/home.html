@@ -1,0 +1,123 @@
+{% include header.html %}
+
+<div class="{{ contentsize }}">
+
+		{% assign cnt = 0 %}
+		{% for post in paginator.posts %}
+			{% assign cnt = cnt | plus: 1 %}
+
+			{% if page.category or site.layout == "b" or cnt > 2 and cnt <= 5 %}
+				{% assign size = "c-4" %}
+				{% assign imgsize = "c-12" %}
+				{% assign txtsize = "c-12" %}
+				{% if site.layout == "a" %}
+				{% assign clearafter = "2,5" | split: "," %}
+				{% endif %}
+			{% elsif cnt <= 2 %}
+				{% assign size = "c-6" %}
+				{% assign imgsize = "c-12" %}
+				{% assign txtsize = "c-12" %}
+				{% assign clearafter = "2,5" | split: "," %}	
+			{% else %}
+				{% assign size = "c-12" %}
+				{% assign imgsize = "c-4" %}
+				{% assign txtsize = "c-8" %}
+				{% assign clearafter = "2,5" | split: "," %}
+			{% endif %}
+
+		<h2><a href="{{ post.url | absolute_url }}"></a></h2>
+		
+
+		<section class="{{ size }} left mb-1">
+			<div class="{{ imgsize }}">
+				<a href="{{ post.url | absolute_url }}">
+					{% if post.image %}
+						<img src="{{ site.url }}{{ site.baseurl }}/images/{{ post.image }}" style="width:100%;">
+					{% else %}
+						<img src="{{ site.url }}{{ site.baseurl }}/images/{{ site.placeholder }}">
+					{% endif %}
+				</a>
+			</div>
+			<div class="{{ txtsize }} pr-2 pl-2">
+				<a href="{{ post.url | absolute_url }}">
+					<h3 class="t-black">{{ post.title }}</h3>
+				</a>
+				<p>{{ post.excerpt }}</p>
+			</div>
+		</section>
+
+		<!-- cast int to str -->
+		
+		
+		{% comment %} 
+			Ha főoldalon vagyunk 
+			(nem category oldalon = else ág)
+		{% endcomment %}
+		{% if page.category %}
+		{% else %}
+			{% comment %} 
+				int castolása str-re összehasonlításhoz
+			{% endcomment %}
+			{% assign cnt_str = cnt | downcase %}
+
+			{% comment %} 
+				ha kell clearelni a felosztás miatt
+				akkor adott elem után megtesszük
+			{% endcomment %}
+			{% if clearafter contains cnt_str %}
+				<div style="clear:both;"></div>
+			{% endif %}
+		{% endif %}
+
+		{% endfor %}
+
+</div>
+
+{% if site.sidebar %}
+<aside class="{{ sidebarsize }} p-1">
+
+	{% include sidebarrand.html %}
+	
+	{% if site.google-adsense-enabled %}
+	<section class="c-12 lightgray mb-1">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<ins class="adsbygoogle"
+			style="display:block"
+			data-ad-client="{{ site.data-ad-client }}"
+			data-ad-slot="{{ site.data-ad-slot-sidebar }}"
+			data-ad-format="auto"
+			data-full-width-responsive="true"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+	</section>
+	{% endif %}
+
+</aside>
+{% endif %}
+
+<div class="{{ contentsize }} pl-4 pr-4 mb-2 mt-2">
+	{% if paginator.previous_page %}
+		<a href="{{ paginator.previous_page_path | absolute_url }}">
+			<button class="{{ site.color }} large left t-white">
+				<b> &lt; &lt; &lt; &lt; &lt; </b>
+			</button>
+		</a>
+	{% endif %}
+
+	{% if paginator.next_page %}
+		<a href="{{ paginator.next_page_path | absolute_url }}">
+			<button class="{{ site.color }} large right t-white">
+				<b> &gt; &gt; &gt; &gt; &gt; </b>
+			</button>
+		</a>
+	{% endif %}
+
+	{% if paginator.total_pages > 1 %}
+	<div class="c-s12 center">
+		{{ paginator.page }} / {{ paginator.total_pages }} oldal
+	</div>
+	{% endif %}
+
+	{{ content }}
+</div>
+
+{% include footer.html %}

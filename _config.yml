@@ -1,0 +1,196 @@
+################################################
+# Base url
+# 
+# If you place your website into a subfolder, specify
+# the subfolder here.
+
+# baseurl: /subfolder
+
+# ################################################
+# Website title, description, and keywords
+# 
+# These attributes show up in the HTML code as meta tags.
+
+title: Example.com
+description: Lorem ipsum dolor sit amet
+keywords: put, your, seo, keywords, here
+
+################################################
+# Choose a Homepage layout
+# 
+# Layout "a":
+#    _____ _____
+#   |     |     |[  ]
+#   |_____|_____|[  ]
+#    abcd  abcd  [  ]
+#    ___ ___ ___ [  ]
+#   |___|___|___|[  ]
+#    ab  ab  ab  [  ]
+#    ___         [  ]
+#   |___|  abcd  [  ]
+#    ___         [  ]
+#   |___|  abcd  [  ]
+#    ___         [  ]
+#   |___|  abcd  [  ]
+#   
+#_________________________
+#
+# Layout "b":
+#    ___ ___ ___ 
+#   |___|___|___|[  ]
+#    ab  ab  ab  [  ]
+#    ___ ___ ___ [  ]
+#   |___|___|___|[  ]
+#    ab  ab  ab  [  ]
+#    ___ ___ ___ [  ]
+#   |___|___|___|[  ]
+#    ab  ab  ab  [  ]
+#    ___ ___ ___ [  ]
+#   |___|___|___|[  ]
+#    ab  ab  ab  [  ]
+
+layout: a
+
+################################################
+# Sidebar enabled?
+
+sidebar: true
+
+################################################
+# Logo image
+# 
+# Logo image in the website header. 
+# Recommended resolution: 150x700 pixels
+
+logo: /assets/logo.png
+
+################################################
+# Site color theme
+# 
+# Values: 
+#    black, darkgray, brown, red, orange, yellow, 
+#    green, blue, purple, gray, lightgray, white
+
+color: blue
+
+################################################
+# Posts per page
+
+paginate: 7
+
+################################################
+# OpenGraph image
+# 
+# When you share your website in social networks
+# this image will load as a cover image
+
+ogimage: https://lorempixel.com/1280/720
+
+################################################
+# Website icon
+# 
+# This image used as apple touch icon, windows tile 
+# icon or android icon (when you bookmark the site on 
+# these plaforms). Recommended size: 180x180 pixels
+# 
+# Dont forget to place a simple 16x16 favicon.ico image 
+# in your root folder also, for regular desktop browsers.
+# Use https://www.favicon-generator.org/
+
+icon: /assets/icon.png
+
+################################################
+# Placeholder image
+# 
+# This image used when you do not set any image in
+# the front matter in a post.
+
+placeholder: https://lorempixel.com/1280/720
+
+################################################
+# Footer text
+# 
+# This text will show up below the copyright notice
+# in the footer
+
+footertext: Copying of the materials published on the site is possible only with the written permission of the author!
+
+################################################
+# Link format
+# 
+# Placeholders: 
+#     :categories
+#     :year
+#     :month
+#     :day
+#     :title
+#     :output_ext
+
+permalink: /post/:title
+
+################################################
+# Pagination format - Homepage
+
+paginate_path: "/page/:num/"
+
+################################################
+# Pagination format - Category page
+
+paginate_category_basepath: '/category/:name/'
+paginate_category_layout: 'home.html'
+
+################################################
+# Google Adsense settings
+# 
+# 1. Go to https://google.com/adsense
+# 2. Generate advertisement code
+# 3. Place the corresponding attribute values here.
+
+   # Enabled?
+google-adsense-enabled: false
+   # Your ad-client id from the embed code
+data-ad-client: "ca-pub-XXXXXXXXXXXXXXXX"
+   # ad-slot id for sidebar ads from the embed code
+data-ad-slot-sidebar: "XXXXXXXXXX"
+   # ad-slot id for in-post ads from the embed code
+data-ad-slot-inpost: "XXXXXXXXXX"
+
+################################################
+# Facebook comments and like button
+# 
+# 1. https://developers.facebook.com/docs/plugins/comments/
+# 2. Generate embed code
+# 3. Place the corresponding attribute values here.
+
+facebook-sdk-appid: "XXXXXXXXXXXXXXXX"
+facebook-sdk-nonce: "XXXXXXXX"
+facebook-like-enabled: false
+facebook-comments-enabled: false
+
+################################################
+# Google Analytics
+# 
+# 1. Go to https://google.com/analytics
+# 2. Add your website 
+# 3. Generate measure code
+# 4. Place the corresponding attribute values here.
+
+google-analytics-enabled: false
+google-analytics-gtagid: "UA-XXXXXXXX-YY"
+
+# Do not modify below
+################################################
+
+# Use "post" layout for posts
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "post"
+
+# Used plugins
+gems :
+  - jekyll-paginate
+  - jekyll-paginate-categories

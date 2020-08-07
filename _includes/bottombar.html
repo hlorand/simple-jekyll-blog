@@ -1,0 +1,14 @@
+<!-- keverés -->
+{% assign n = site.posts | size %}
+{% assign posts = site.posts | sample: n %}
+
+{% for post in posts limit:3 %}
+
+<section class="c-4 p-1">
+	<a href="{{ post.url | absolute_url }}">
+		<img src="{{ site.url }}{{ site.baseurl }}/images/{{ post.image }}" style="width: 100%">
+		<h4 class="asideh t-black">{{ post.title }}</h4>
+	</a>
+</section>
+
+{% endfor %}

@@ -1,0 +1,20 @@
+<style>
+	.asideh{ text-align: left; }
+	@media only screen and (max-width: 640px) {
+		.asideh{
+			font-size: x-large;
+		}
+	}
+</style>
+
+
+{% for post in site.posts limit:5 %}
+
+<section class="c-12">
+	<a href="{{ post.url | absolute_url }}">
+		<img src="{{ site.url }}{{ site.baseurl }}/images/{{ post.image }}" style="width: 100%">
+		<h4 class="asideh t-black pb-2">{{ post.title }}</h4>
+	</a>
+</section>
+
+{% endfor %}

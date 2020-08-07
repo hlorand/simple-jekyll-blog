@@ -1,0 +1,31 @@
+</main>
+
+
+<footer class="c-12 lightgray center p-1">
+	<p>Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }} <br><small>{{ site.footertext }}</small> </p>
+</footer>
+
+<script>
+document.addEventListener('contextmenu', event => event.preventDefault());
+var els = document.querySelectorAll('p');
+for (var i=0; i < els.length; i++) {
+	els[i].setAttribute("onmousedown", "return false;");
+	els[i].setAttribute("onselectstart", "return false;");
+	els[i].setAttribute("oncopy", "return false;");
+	els[i].setAttribute("oncut", "return false;");
+}
+</script>
+
+{% if site.google-analytics-enabled %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google-analytics-gtagid }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ site.google-analytics-gtagid }}');
+</script>
+{% endif %}
+
+</body>
+</html>

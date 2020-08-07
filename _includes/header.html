@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% elsif page.category %} {{ page.category | capitalize }} | {{ site.title }} {% else %}{{ site.title }} | {{ site.description }}{% endif %}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/style.css" />
+	<meta name="robots" content="index, follow">
+	<meta name="language" content="HU">
+	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html }}{% else %}{{ site.description }}{% endif %}" />
+	<meta name="keywords" content="{% if page.tags %}{{ page.tags }}{% else %}{{ site.keywords }}{% endif%}" />
+	<meta property="og:image" content="{% if page.image %}{{ page.image }}{% else %}{{ site.ogimage }}{% endif%}">
+	<meta name="twitter:image" content="{% if page.image %}{{ page.image }}{% else %}{{ site.ogimage }}{% endif%}">
+	<meta name="twitter:card" content="summary_large_image">
+	<!-- icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ site.url }}{{ site.baseurl }}{{ site.iconpng }}">
+	<link rel="icon" type="image/png" sizes="192x192"  href="{{ site.url }}{{ site.baseurl }}{{ site.iconpng }}">
+	<meta name="msapplication-TileImage" content="{{ site.url }}{{ site.baseurl }}{{ site.iconpng }}">
+	<!-- rss -->
+</head>
+<body>
+
+<header class="row">
+	<div class="c-s12 c-6">
+		{% if site.logo %}
+			<a href="{{ site.baseurl }}/">
+				<img class="p-2" src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }} | {{ site.description }}">
+			</a>
+		{% else %}
+			<h2 class="ml-2">{{ site.title }}</h2>
+			<h4 class="ml-2 mb-2 t-gray">{{ site.description }}</h4>
+		{% endif %}
+	</div>
+	<div class="c-s12 c-6">
+	</div>
+</header>
+
+<nav class="c-12">
+	<label class="menutoggle {{ site.color }} p-2" for="menutoggle">☰</label>
+	<input id="menutoggle" type="checkbox">
+	<ul class="menu {{ site.color }}">
+
+		{% assign categorybase = site.paginate_category_basepath | replace: "/", "" | split: ":" | first %}
+		{% assign categories = site.categories | sort %}
+		{% for category in categories %}
+			{% assign currentcategory = category | first %}
+			{% if page.category == currentcategory %}
+				{% assign active = "active" %}
+			{% else %}
+				{% assign active = "" %}
+			{% endif %}
+			<a class="t-white" href="{{ site.url }}{{ site.baseurl }}/{{ categorybase }}/{{ category | first }}">
+				<li class="{{ site.color }} {{active}} p-2"> {{ category | first | upcase }} </li>
+
+			</a>
+		{% endfor %}
+		
+	</ul>
+</nav>
+
+<main class="row">
+
+{% if site.sidebar %}
+	{% assign contentsize = "c-9" %}
+	{% assign sidebarsize = "c-3" %}
+{% else %}
+	{% assign contentsize = "c-12" %}
+{% endif %}
