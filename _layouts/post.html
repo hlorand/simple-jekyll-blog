@@ -81,14 +81,14 @@
 		</div>
 		<script>
 			/* move inpostad and inpostad2 into the content */
-			document.addEventListener("DOMContentLoaded", function(){
+			window.addEventListener("load", function(){
 				const adelement = document.querySelector('#inpostad');
 				const adelement2 = document.querySelector('#inpostad2');
 				const pelements = document.querySelectorAll('#content p');
 				if(pelements.length >4)
 					adelement.parentNode.insertBefore(adelement, pelements[5]);
 				if(pelements.length >9)
-				adelement2.parentNode.insertBefore(adelement2, pelements[10]);
+					adelement2.parentNode.insertBefore(adelement2, pelements[10]);
 			});
 		</script>
 		{% endif %}
