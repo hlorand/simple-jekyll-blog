@@ -10,8 +10,10 @@
 				{% assign size = "c-4" %}
 				{% assign imgsize = "c-12" %}
 				{% assign txtsize = "c-12" %}
-				{% if site.layout == "a" %}
-				{% assign clearafter = "2,5" | split: "," %}
+				{% if site.layout == "b" or page.category %}
+					{% assign clearafter = "3,6,9,12,15" | split: "," %}
+				{% else %}
+					{% assign clearafter = "2,5" | split: "," %}
 				{% endif %}
 			{% elsif cnt <= 2 %}
 				{% assign size = "c-6" %}
@@ -24,6 +26,7 @@
 				{% assign txtsize = "c-8" %}
 				{% assign clearafter = "2,5" | split: "," %}
 			{% endif %}
+			
 
 		<h2><a href="{{ post.url | absolute_url }}"></a></h2>
 		
@@ -46,27 +49,10 @@
 			</div>
 		</section>
 
-		<!-- cast int to str -->
-		
-		
-		{% comment %} 
-			Ha főoldalon vagyunk 
-			(nem category oldalon = else ág)
-		{% endcomment %}
-		{% if page.category %}
-		{% else %}
-			{% comment %} 
-				int castolása str-re összehasonlításhoz
-			{% endcomment %}
-			{% assign cnt_str = cnt | downcase %}
-
-			{% comment %} 
-				ha kell clearelni a felosztás miatt
-				akkor adott elem után megtesszük
-			{% endcomment %}
-			{% if clearafter contains cnt_str %}
-				<div style="clear:both;"></div>
-			{% endif %}
+		{% comment %} cast int to str {% endcomment %}
+		{% assign cnt_str = cnt | downcase %}
+		{% if clearafter contains cnt_str %}
+			<div style="clear:both;"></div>
 		{% endif %}
 
 		{% endfor %}
@@ -113,7 +99,7 @@
 
 	{% if paginator.total_pages > 1 %}
 	<div class="c-s12 center">
-		{{ paginator.page }} / {{ paginator.total_pages }} oldal
+		{{ paginator.page }} / {{ paginator.total_pages }}
 	</div>
 	{% endif %}
 
