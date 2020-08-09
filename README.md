@@ -42,10 +42,14 @@ date: 2020-08-05 12:00
 categories: category1 category2
 tags: tag1 tag2 tag3
 image: thumbnail.jpg
+published: true
+hidden: false
 ---
 ```
 
-Categories will appear on the menu bar, tags will used for meta keywords. Your post's first paragraph will used as an excerpt and as meta description.
+- Categories will appear on the menu bar
+- Tags will used for meta keywords. 
+- Your post's first paragraph will used as an excerpt and as meta description.
 
 Place your images inside the `images/` folder. You can link images in the post with this markdown expression (you dont have to specify the absolute path, only the filename): `![](imagename.jpg)`
 
