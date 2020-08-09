@@ -33,7 +33,7 @@ The `_config.yml` is well documented. Just read form top to bottom and fill the 
 
 Fork this repository, read and fill `_config.yml`
 
-Place your blog posts in the `_posts/` folder. Recommended front matter for the posts:
+Place your blog posts in the `_posts/` folder as `.md` markdown files. Recommended front matter for the posts:
 
 ```
 ---
@@ -46,6 +46,8 @@ image: thumbnail.jpg
 ```
 
 Categories will appear on the menu bar, tags will used for meta keywords. Your post's first paragraph will used as an excerpt and as meta description.
+
+Place your images inside the `images/` folder. You can link images in the post with this markdown expression (you dont have to specify the absolute path, only the filename): `![](imagename.jpg)`
 
 ### Publish your site
 

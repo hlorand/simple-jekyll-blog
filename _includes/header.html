@@ -16,6 +16,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ site.url }}{{ site.baseurl }}{{ site.iconpng }}">
 	<link rel="icon" type="image/png" sizes="192x192"  href="{{ site.url }}{{ site.baseurl }}{{ site.iconpng }}">
 	<meta name="msapplication-TileImage" content="{{ site.url }}{{ site.baseurl }}{{ site.iconpng }}">
+	<base href="{{ site.url }}{{ site.baseurl }}/images/" />
 	<!-- rss -->
 </head>
 <body>
@@ -24,7 +25,7 @@
 	<div class="c-s12 c-6">
 		{% if site.logo %}
 			<a href="{{ site.baseurl }}/">
-				<img class="p-2" src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }} | {{ site.description }}">
+				<img class="p-2" src="{{ site.url }}{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }} | {{ site.description }}">
 			</a>
 		{% else %}
 			<h2 class="ml-2">{{ site.title }}</h2>
