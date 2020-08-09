@@ -6,6 +6,7 @@
 </footer>
 
 <script>
+//protection
 document.addEventListener('contextmenu', event => event.preventDefault());
 var els = document.querySelectorAll('p');
 for (var i=0; i < els.length; i++) {
@@ -13,6 +14,14 @@ for (var i=0; i < els.length; i++) {
 	els[i].setAttribute("onselectstart", "return false;");
 	els[i].setAttribute("oncopy", "return false;");
 	els[i].setAttribute("oncut", "return false;");
+}
+//responsive video
+var els = document.querySelectorAll("iframe");
+for (var i=0; i < els.length; i++) {
+	var wrapper = document.createElement("div");
+	wrapper.classList.add("video");
+	els[i].parentNode.insertBefore(wrapper, els[i]);
+	wrapper.appendChild(els[i]);
 }
 </script>
 
