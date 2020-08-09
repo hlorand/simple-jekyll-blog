@@ -50,7 +50,7 @@
 			{% else %}
 				{% assign active = "" %}
 			{% endif %}
-			<a class="t-white" href="{{ site.url }}{{ site.baseurl }}/{{ categorybase }}/{{ category | first }}">
+			<a class="t-white" href="{{ site.url }}{{ site.baseurl }}/{{ categorybase }}/{{ category | first | regex_replace: '[À-ú]',''}}">
 				<li class="{{ site.color }} {{active}} p-2"> {{ category | first | upcase }} </li>
 
 			</a>

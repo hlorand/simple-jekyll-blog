@@ -10,4 +10,5 @@ gem 'jekyll'
 group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jekyll-paginate-categories'
+  gem 'jekyll-regex-replace'
 end

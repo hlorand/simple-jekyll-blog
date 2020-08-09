@@ -194,3 +194,4 @@ defaults:
 gems :
   - jekyll-paginate
   - jekyll-paginate-categories
+  - jekyll-regex-replace
