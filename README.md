@@ -39,8 +39,8 @@ Place your blog posts in the `_posts/` folder as `.md` markdown files. Recommend
 ---
 title: Your post title
 date: 2020-08-05 12:00
-category: yourcategory
-tags: tag1, tag2, tag3
+categories: category1 category2
+tags: tag1 tag2 tag3
 image: thumbnail.jpg
 ---
 ```

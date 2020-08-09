@@ -8,7 +8,7 @@
 	<meta name="robots" content="index, follow">
 	<meta name="language" content="HU">
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html }}{% else %}{{ site.description }}{% endif %}" />
-	<meta name="keywords" content="{% if page.tags %}{{ page.tags }}{% else %}{{ site.keywords }}{% endif%}" />
+	<meta name="keywords" content="{% if page.tags %}{{ page.tags | join: "," }}{% else %}{{ site.keywords }}{% endif%}" />
 	<meta property="og:image" content="{% if page.image %}{{ page.image }}{% else %}{{ site.ogimage }}{% endif%}">
 	<meta name="twitter:image" content="{% if page.image %}{{ page.image }}{% else %}{{ site.ogimage }}{% endif%}">
 	<meta name="twitter:card" content="summary_large_image">
