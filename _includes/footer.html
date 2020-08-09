@@ -16,7 +16,7 @@ for (var i=0; i < els.length; i++) {
 	els[i].setAttribute("oncut", "return false;");
 }
 //responsive video
-var els = document.querySelectorAll("iframe");
+var els = document.querySelectorAll("iframe[src*='youtube.com']");
 for (var i=0; i < els.length; i++) {
 	var wrapper = document.createElement("div");
 	wrapper.classList.add("video");
