@@ -11,7 +11,7 @@
 {% for post in site.posts limit:5 %}
 
 <section class="c-12">
-	<a href="{{ post.url | absolute_url }}">
+	<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
 		<img src="{% if post.image %}{{ site.url }}{{ site.baseurl }}/images/{{ post.image }}{% else %}{{ site.placeholder }}{% endif %}" style="width: 100%">
 		<h4 class="asideh t-black pb-2">{{ post.title }}</h4>
 	</a>

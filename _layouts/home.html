@@ -28,12 +28,12 @@
 			{% endif %}
 			
 
-		<h2><a href="{{ post.url | absolute_url }}"></a></h2>
+		<h2><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"></a></h2>
 		
 
 		<section class="{{ size }} left mb-1">
 			<div class="{{ imgsize }}">
-				<a href="{{ post.url | absolute_url }}">
+				<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
 					{% if post.image %}
 						<img src="{{ site.url }}{{ site.baseurl }}/images/{{ post.image }}" style="width:100%;">
 					{% else %}
@@ -42,7 +42,7 @@
 				</a>
 			</div>
 			<div class="{{ txtsize }} pr-2 pl-2">
-				<a href="{{ post.url | absolute_url }}">
+				<a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">
 					<h3 class="t-black">{{ post.title }}</h3>
 				</a>
 				<p>{{ post.excerpt }}</p>
@@ -82,7 +82,7 @@
 
 <div class="{{ contentsize }} pl-4 pr-4 mb-2 mt-2">
 	{% if paginator.previous_page %}
-		<a href="{{ paginator.previous_page_path | absolute_url }}">
+		<a href="{{ site.url }}{{ site.baseurl }}{{ paginator.previous_page_path }}">
 			<button class="{{ site.color }} large left t-white">
 				<b> &lt; &lt; &lt; &lt; &lt; </b>
 			</button>
@@ -90,7 +90,7 @@
 	{% endif %}
 
 	{% if paginator.next_page %}
-		<a href="{{ paginator.next_page_path | absolute_url }}">
+		<a href="{{ site.url }}{{ site.baseurl }}{{ paginator.next_page_path }}">
 			<button class="{{ site.color }} large right t-white">
 				<b> &gt; &gt; &gt; &gt; &gt; </b>
 			</button>
