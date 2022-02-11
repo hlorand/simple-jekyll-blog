@@ -12,6 +12,7 @@ A simple minimalist blog theme for Jekyll built with [lori.css](https://hlorand.
 - Custom logo and Open Graph image (social network share)
 - Google Analytics support
 - Google Adsense support (advertisement on the sidebar, and in the post content)
+- You can turn ads on/off per post basis
 - Facebook comments and like button support
 - Random post recommendation on post page
 - Customizable footer text
@@ -44,6 +45,7 @@ tags: tag1 tag2 tag3
 image: thumbnail.jpg
 published: true
 hidden: false
+ad: true
 ---
 ```
 
@@ -60,3 +62,20 @@ Place your images inside the `images/` folder. You can link images in the post w
 3. Look for the "New site from Git" button and follow the instructions.
 
 ![](https://i.imgur.com/u6Ojj0T.png)
+
+### Test your site locally
+
+macOS/Linux (on Windows install inside WSL Windows Subsystem for Linux):
+
+```bash
+sudo apt update
+sudo apt install jekyll
+
+# navigate to blog folder:
+cd simple-jekyll-blog
+
+sudo bundle install
+sudo bundle jekyll serve
+
+# open your browser: 127.0.0.1:4000
+```

@@ -37,7 +37,7 @@
 		<small>{{ page.date | date: "%Y. %m. %d." }}</small>
 	</div>
 	<div id="content" class="c-12 c-l10 o-l1 pt-2 pl-5 pr-5">
-		{% if site.google-adsense-enabled %}
+		{% if site.google-adsense-enabled and page.ad != false %}
 		<div id="inpostad" class="lightgray">
 			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<ins class="adsbygoogle"
@@ -68,7 +68,7 @@
 		<div class="fb-comments" data-href="{{ page.url | absolute_url }}" data-numposts="10" data-lazy="true" data-width="100%"></div>
 		{% endif %}
 		
-		{% if site.google-adsense-enabled %}
+		{% if site.google-adsense-enabled and page.ad != false %}
 		<div id="inpostad2" class="lightgray">
 			<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<ins class="adsbygoogle"
@@ -102,7 +102,7 @@
 {% if site.sidebar %}
 <aside class="{{ sidebarsize }} p-1">
 
-	{% if site.google-adsense-enabled %}
+	{% if site.google-adsense-enabled and page.ad != false %}
 	<section class="c-12 lightgray mb-1">
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<ins class="adsbygoogle"
